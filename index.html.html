@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mine Shreya ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+background:radial-gradient(circle at top,#33134f,#0a0f28 65%);
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:cursive;
+position:relative;
+}
+
+/* Stars */
+
+.star{
+position:absolute;
+background:white;
+border-radius:50%;
+opacity:.7;
+animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+50%{
+opacity:.2;
+}
+}
+
+/* Content */
+
+.container{
+position:relative;
+z-index:50;
+text-align:center;
+width:85%;
+max-width:1000px;
+}
+
+.title{
+font-size:6rem;
+color:#ffd8ee;
+
+text-shadow:
+0 0 15px #ff88bb,
+0 0 30px #ff66aa,
+0 0 60px #ff3399;
+
+animation:pulse 3s infinite;
+margin-bottom:25px;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.03);
+}
+}
+
+#message{
+font-size:2rem;
+line-height:1.7;
+color:white;
+white-space:pre-line;
+text-shadow:
+0 0 10px rgba(255,255,255,.4);
+}
+
+.cursor{
+animation:blink .8s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:0;
+}
+}
+
+/* Hearts */
+
+.heart{
+position:absolute;
+animation:floatUp linear infinite;
+opacity:.55;
+}
+
+@keyframes floatUp{
+
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120px);
+opacity:0;
+}
+
+}
+
+/* Fairies */
+
+.fairy{
+position:absolute;
+font-size:28px;
+opacity:.35;
+filter:grayscale(100%) brightness(2.2);
+animation:fly linear infinite;
+}
+
+@keyframes fly{
+
+from{
+transform:translateX(-100px);
+}
+
+to{
+transform:translateX(110vw);
+}
+
+}
+
+/* Diyas */
+
+.diya{
+position:absolute;
+bottom:25px;
+font-size:48px;
+opacity:.18;
+z-index:2;
+}
+
+.left{
+left:7%;
+}
+
+.right{
+right:7%;
+}
+
+/* Candle */
+
+.candle{
+position:absolute;
+bottom:90px;
+left:50%;
+transform:translateX(-50%);
+width:35px;
+height:120px;
+background:rgba(255,255,255,.08);
+border-radius:20px;
+z-index:1;
+}
+
+.flame{
+position:absolute;
+top:-20px;
+left:50%;
+transform:translateX(-50%);
+width:15px;
+height:25px;
+background:orange;
+border-radius:50%;
+opacity:.28;
+box-shadow:
+0 0 20px orange,
+0 0 40px gold;
+
+animation:flicker .2s infinite alternate;
+}
+
+@keyframes flicker{
+
+from{
+transform:translateX(-50%) scale(1);
+}
+
+to{
+transform:translateX(-50%) scale(1.15);
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Dim Diyas -->
+<div class="diya left">🪔</div>
+<div class="diya right">🪔</div>
+
+<!-- Background Candle -->
+<div class="candle">
+<div class="flame"></div>
+</div>
+
+<div class="container">
+
+<div class="title">
+Mine Shreya ❤️
+</div>
+
+<div id="message"></div>
+
+</div>
+
+<script>
+
+/* Typewriter Message */
+
+const text =
+
+`Happy Birthday My Mine Shreya ❤️
+
+Today the stars glow a little brighter...
+
+The sun seemed a little brighter today...
+
+And somehow the whole world feels happier.
+
+Perhaps because it is the day
+someone truly special came into this world.
+
+Shreya...
+
+May your heart always be filled
+with happiness.
+
+May every dream you cherish
+find its way to reality.
+
+May every prayer you whisper
+return to you as a blessing.
+
+Your smile has a way of making
+ordinary days feel beautiful.
+
+Your kindness leaves warmth
+wherever you go.
+
+And your presence makes life brighter
+for everyone around you.
+
+Never stop shining.
+Never stop dreaming.
+Never stop being the wonderful person you are.
+
+Happy Birthday,
+My Mine Shreya ❤️✨
+
+Today is your day.
+Tomorrow is your future.
+
+And I hope both are filled
+with endless joy, love and beautiful memories.
+
+Forever your admirer ❤️`;
+
+let i=0;
+
+function typeWriter(){
+
+if(i < text.length){
+
+document.getElementById("message").innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,55);
+
+}
+
+}
+
+typeWriter();
+
+/* Stars */
+
+for(let i=0;i<180;i++){
+
+let star=document.createElement("div");
+
+star.className="star";
+
+let size=Math.random()*3;
+
+star.style.width=size+"px";
+star.style.height=size+"px";
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+
+star.style.animationDelay=Math.random()*3+"s";
+
+document.body.appendChild(star);
+
+}
+
+/* Hearts */
+
+for(let i=0;i<35;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=
+(Math.random()*15+12)+"px";
+
+heart.style.animationDuration=
+(Math.random()*8+7)+"s";
+
+document.body.appendChild(heart);
+
+}
+
+/* Fairies */
+
+for(let i=0;i<8;i++){
+
+let fairy=document.createElement("div");
+
+fairy.className="fairy";
+
+fairy.innerHTML="🧚";
+
+fairy.style.top=
+Math.random()*70+"vh";
+
+fairy.style.animationDuration=
+(Math.random()*20+18)+"s";
+
+fairy.style.animationDelay=
+Math.random()*8+"s";
+
+document.body.appendChild(fairy);
+
+}
+
+</script>
+
+</body>
+</html>
